@@ -1,0 +1,15 @@
+:root {
+  --primary-color: hsl(170, 100%, 26%);
+  --headline: hsl(210, 11%, 15%);
+  --paragraph: hsl(210, 9%, 31%);
+  font-size: 62.5%;
+}
+
+* {
+  font-size: "DM Sans";
+  font-size: 1.6rem;
+  text-align: center;
+  margin: 0;
+
+  box-sizing: border-box;
+}
