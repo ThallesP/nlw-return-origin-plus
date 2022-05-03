@@ -13,3 +13,7 @@
 
   box-sizing: border-box;
 }
+
+body {
+  background-color: hsla(148, 23%, 89%, 1);
+}

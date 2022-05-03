@@ -53,3 +53,46 @@ button {
 
   margin: auto;
 }
+
+#statsContainer {
+  background-color: hsl(39, 100%, 97%);
+  border: 1px solid #dce9e2;
+  border-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.statsText {
+  height: 2.4rem;
+  font-size: 1.6rem;
+  line-height: 150%;
+  color: #00856f;
+}
+
+.statsNumbers {
+  height: 6.2rem;
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 130%;
+  color: #212529;
+}
+
+.statsBox {
+  height: 9rem;
+  margin-left: 8rem;
+  margin-right: 8rem;
+  margin-bottom: 6rem;
+}
+
+#patientsStats {
+  margin-top: 4rem;
+}
+
+#expertsStats {
+  margin-bottom: 6rem;
+}
+
+#yearsStats {
+  margin-bottom: 4rem;
+}

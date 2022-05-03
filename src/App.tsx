@@ -27,12 +27,23 @@ function App() {
         Agende sua consulta
       </button>
       <GirlImg title="Mulher negra vestindo um moletom verde e sorrindo" />
-      <h3>+3.500</h3>
-      <p>Pacientes atendidos</p>
-      <h3>+15</h3>
-      <p>Especialistas disponíveis</p>
-      <h3>+10</h3>
-      <p>Anos no mercado</p>
+
+      <div id="statsContainer">
+        <div id="patientsStats" className="statsBox">
+          <h3 className="statsNumbers">+3.500</h3>
+          <p className="statsText">Pacientes atendidos</p>
+        </div>
+
+        <div id="expertsStats" className="statsBox">
+          <h3 className="statsNumbers">+15</h3>
+          <p className="statsText">Especialistas disponíveis</p>
+        </div>
+
+        <div id="yearsStats" className="statsBox">
+          <h3 className="statsNumbers">+10</h3>
+          <p className="statsText">Anos no mercado</p>
+        </div>
+      </div>
     </header>
   );
 }
