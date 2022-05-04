@@ -6,17 +6,25 @@
   --brand-light: hsl(148, 23%, 89%);
   --nav-height: 7.2rem;
 
+  --bg-light: hsl(180, 14%, 97%);
+
   font-size: 62.5%;
 }
 
 body {
   overflow: overlay;
+  text-align: center;
+  font-size: 1.6rem;
+
+  background-color: var(--bg-light);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
   font-size: "DM Sans";
-  font-size: 1.6rem;
-  text-align: center;
   margin: 0;
   padding: 0;
 

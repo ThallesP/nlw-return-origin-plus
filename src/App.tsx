@@ -7,9 +7,12 @@ import { ReactComponent as InstagramLogo } from "../assets/instagram.svg";
 import { ReactComponent as FacebookLogo } from "../assets/facebook.svg";
 import { ReactComponent as YoutubeLogo } from "../assets/youtube.svg";
 import { ReactComponent as CloseSVG } from "../assets/close.svg";
+import { ReactComponent as CheckmarkSVG } from "../assets/checkmark.svg";
+import { ReactComponent as DoctorSVG } from "../assets/doctor.svg";
+import ScrollReveal from "scrollreveal";
 
 import "./App.css";
-import React, { SyntheticEvent } from "react";
+import React, { SyntheticEvent, useRef } from "react";
 
 function App() {
   function onScrollNav(ev: Event): void {
@@ -36,8 +39,16 @@ function App() {
     menu?.classList.remove("menu-expanded");
   }
 
+  function scrollTo(id: string) {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  }
+
   document.addEventListener("scroll", onScrollNav);
 
+  ScrollReveal({ origin: "top", distance: "30px", duration: 700 }).reveal(
+    `#home, #home img, #home .stats, #services, #services header, #services .card, #about, #about header, #about .content`
+  );
   return (
     <div id="container">
       <nav id="navbar">
@@ -49,13 +60,37 @@ function App() {
           <div className="menu">
             <ul>
               <li>
-                <a href="#">Início</a>
+                <a
+                  onClick={(e) => {
+                    closeMenu(e);
+                    scrollTo("home");
+                  }}
+                  href="#home"
+                >
+                  Início
+                </a>
               </li>
               <li>
-                <a href="#">Serviços</a>
+                <a
+                  onClick={(e) => {
+                    closeMenu(e);
+                    scrollTo("services");
+                  }}
+                  href="#services"
+                >
+                  Serviços
+                </a>
               </li>
               <li>
-                <a href="#">Sobre</a>
+                <a
+                  onClick={(e) => {
+                    closeMenu(e);
+                    scrollTo("about");
+                  }}
+                  href="#about"
+                >
+                  Sobre
+                </a>
               </li>
             </ul>
 
@@ -103,38 +138,145 @@ function App() {
         </div>
       </nav>
 
-      <header className="wrapper">
-        <h4>BOAS-VINDAS A DOCTORCARE 👋</h4>
-        <h1>Assistência médica simplificada para todos</h1>
-        <p>
-          Os médicos da DoctorCare vão além dos sintomas para tratar a causa
-          raiz de sua doença e proporcionar uma cura a longo prazo.
-        </p>
-        <button>
-          <WhatsappLogo /> Agende sua consulta
-        </button>
+      <section id="home">
+        <div className="wrapper">
+          <header>
+            <h4>BOAS-VINDAS A DOCTORCARE 👋</h4>
+            <h1>Assistência médica simplificada para todos</h1>
+          </header>
 
-        <GirlImg
-          id="girl-svg"
-          title="Mulher negra vestindo um moletom verde e sorrindo"
-        />
-        <div className="stats">
-          <div className="stat">
-            <h3>+3.500</h3>
-            <p>Pacientes atendidos</p>
+          <div className="content">
+            <p>
+              Os médicos da DoctorCare vão além dos sintomas para tratar a causa
+              raiz de sua doença e proporcionar uma cura a longo prazo.
+            </p>
+            <button>
+              <WhatsappLogo /> Agende sua consulta
+            </button>
+
+            <GirlImg
+              id="girl-svg"
+              title="Mulher negra vestindo um moletom verde e sorrindo"
+            />
           </div>
 
-          <div className="stat">
-            <h3>+15</h3>
-            <p>Especialistas disponíveis</p>
-          </div>
+          <div className="stats">
+            <div className="stat">
+              <h3>+3.500</h3>
+              <p>Pacientes atendidos</p>
+            </div>
 
-          <div className="stat">
-            <h3>+10</h3>
-            <p>Anos no mercado</p>
+            <div className="stat">
+              <h3>+15</h3>
+              <p>Especialistas disponíveis</p>
+            </div>
+
+            <div className="stat">
+              <h3>+10</h3>
+              <p>Anos no mercado</p>
+            </div>
           </div>
         </div>
-      </header>
+      </section>
+
+      <section id="services">
+        <div className="wrapper">
+          <header>
+            <h4>Serviços</h4>
+            <h2>Como podemos ajudá-lo a se sentir melhor?</h2>
+          </header>
+        </div>
+
+        <div className="content">
+          <div className="cards">
+            <div className="card">
+              <CheckmarkSVG />
+
+              <h3>Problemas digestivos</h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint. Velit officia consequat duis enim.
+              </p>
+            </div>
+
+            <div className="card">
+              <CheckmarkSVG />
+
+              <h3>Saúde Hormonal</h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint. Velit officia consequat duis enim.
+              </p>
+            </div>
+
+            <div className="card">
+              <CheckmarkSVG />
+
+              <h3>Bem-estar mental</h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint. Velit officia consequat duis enim.
+              </p>
+            </div>
+
+            <div className="card">
+              <CheckmarkSVG />
+
+              <h3>Cuidados Pediátricos</h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint. Velit officia consequat duis enim.
+              </p>
+            </div>
+
+            <div className="card">
+              <CheckmarkSVG />
+
+              <h3>Autoimune e Inflamação</h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint. Velit officia consequat duis enim.
+              </p>
+            </div>
+
+            <div className="card">
+              <CheckmarkSVG />
+
+              <h3>Saúde do Coração</h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint. Velit officia consequat duis enim.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div className="wrapper">
+          <header>
+            <h4>Sobre nós</h4>
+            <h2>Entenda quem somos e por que existimos</h2>
+          </header>
+
+          <div className="content">
+            <p>
+              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+              amet sint. Velit officia consequat duis enim. Amet minim mollit
+              non deserunt ullamco est sit aliqua dolor do amet sint. Velit
+              officia consequat duis enim. Amet minim mollit non deserunt
+              ullamco est sit aliqua dolor do amet sint. Velit officia consequat
+              duis enim. Amet minim mollit non deserunt ullamco est sit aliqua
+              dolor do amet sint. Velit officia consequat duis enim. Amet minim
+              mollit non deserunt ullamco est sit aliqua dolor do amet sint.
+            </p>
+            <img
+              src="/assets/doctor.png"
+              alt="Um Doutor feliz de jaleco branco com uma prancheta na mão com seus dois pacientes"
+            />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
