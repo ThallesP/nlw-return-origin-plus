@@ -84,10 +84,20 @@ function App() {
             </ul>
           </div>
 
-          <button onClick={openMenu} className="open-menu">
+          <button
+            aria-expanded="false"
+            aria-label="Abrir menu"
+            onClick={openMenu}
+            className="open-menu"
+          >
             <HamburguerMenuSVG />
           </button>
-          <button onClick={closeMenu} className="close-menu">
+          <button
+            aria-label="Fechar menu"
+            aria-expanded="true"
+            onClick={closeMenu}
+            className="close-menu"
+          >
             <CloseSVG />
           </button>
         </div>
