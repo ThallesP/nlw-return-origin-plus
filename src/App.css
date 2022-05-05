@@ -13,6 +13,38 @@ section {
   padding-block: 10rem;
 }
 
+.button {
+  background-color: var(--primary-color);
+
+  border: none;
+  border-radius: 4rem;
+
+  margin-bottom: 6rem;
+  width: fit-content;
+
+  padding: 1.6rem 3.2rem;
+
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  gap: 1.6rem;
+
+  text-decoration: none;
+
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: var(--brand-dark);
+}
+
 img {
   max-width: 100%;
 }
@@ -50,6 +82,34 @@ section .content p {
   color: var(--paragraph);
 }
 
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+/* Custom colors */
+
+#services .card circle {
+  fill: var(--brand-light);
+}
+
+#navbar .logo svg path[fill*="#00856F"],
+#backToTopButton svg circle {
+  fill: var(--primary-color);
+}
+
+.menu-expanded #navbar .logo svg path,
+#navbar.scroll .logo svg path[fill*="#00856F"] {
+  fill: white;
+}
+
+button.open-menu path,
+#contact ul li svg path {
+  stroke: var(--primary-color);
+}
+
 /** NAVIGATION */
 
 nav {
@@ -72,10 +132,6 @@ nav .wrapper {
 
 nav.scroll {
   background-color: var(--primary-color);
-}
-
-nav.scroll .logo svg path {
-  fill: white;
 }
 
 nav.scroll button path {
@@ -115,29 +171,7 @@ nav button {
   margin-bottom: 3.2rem;
 }
 
-#home button {
-  background-color: var(--primary-color);
-
-  border: none;
-  border-radius: 4rem;
-
-  margin-bottom: 6rem;
-
-  height: 6.2rem;
-  width: 26.3rem;
-
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  font-weight: 700;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-
-  gap: 1.6rem;
-
+#home .button {
   margin: auto;
 }
 
@@ -242,9 +276,18 @@ body.menu-expanded > :not(nav) {
   margin-bottom: 8rem;
 }
 
+.menu .button:hover {
+  background-color: var(--primary-color);
+  filter: brightness(1.1);
+}
+
 .menu .button a {
   text-decoration: none;
   color: var(--primary-color);
+}
+
+.menu .button a:hover {
+  color: #fff;
 }
 
 .menu ul:nth-child(1) {
@@ -261,13 +304,6 @@ body.menu-expanded > :not(nav) {
   font-weight: 700;
   font-size: 2.4rem;
   line-height: 3.1rem;
-}
-
-.social-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3.2rem;
 }
 
 .menu-expanded .logo,
@@ -332,4 +368,81 @@ body.menu-expanded > :not(nav) {
 #about .content p {
   margin-top: 2.4rem;
   margin-bottom: 6rem;
+}
+
+/* Contact */
+#contact {
+  text-align: left;
+}
+
+#contact header {
+  margin-bottom: 3.2rem;
+}
+
+#contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  margin-bottom: 3.2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  padding-block: 6rem;
+
+  text-align: left;
+  color: white;
+}
+
+footer .logo {
+  display: inline-block;
+  margin-bottom: 2.4rem;
+}
+
+footer .logo svg {
+  width: 23.6rem;
+  height: 3.1rem;
+}
+
+footer .logo path {
+  fill: white;
+}
+
+footer p {
+  color: var(--brand-beige);
+  line-height: 2;
+
+  margin-bottom: 3.2rem;
+}
+
+footer .social-links {
+  justify-content: flex-start;
+}
+
+/* Back to top button */
+#backToTopButton {
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
+
+  transform: translateY(100%);
+  transition: 300ms;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+#backToTopButton.show {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
 }

@@ -1,10 +1,12 @@
 :root {
-  --primary-color: hsl(170, 100%, 26%);
+  --hue: 100;
+  --primary-color: hsl(var(--hue), 100%, 26%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
   --brand-beige: hsl(39, 100%, 97%);
-  --brand-light: hsl(148, 23%, 89%);
+  --brand-light: hsl(calc(var(--hue) - 22), 23%, 89%);
   --nav-height: 7.2rem;
+  --brand-dark: hsl(var(--hue), 100%, 14%);
 
   --bg-light: hsl(180, 14%, 97%);
 
@@ -24,7 +26,7 @@ html {
 }
 
 * {
-  font-size: "DM Sans";
+  font-family: "DM Sans";
   margin: 0;
   padding: 0;
 
