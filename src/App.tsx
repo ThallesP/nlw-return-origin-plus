@@ -1,24 +1,61 @@
 /// <reference types="vite-plugin-svgr/client" />
-import { ReactComponent as WhatsappLogo } from "../assets/whatsapp.svg";
-import { ReactComponent as Logo } from "../assets/logo.svg";
-import { ReactComponent as HamburguerMenuSVG } from "../assets/hamburguerMenu.svg";
-import { ReactComponent as InstagramLogo } from "../assets/instagram.svg";
-import { ReactComponent as FacebookLogo } from "../assets/facebook.svg";
-import { ReactComponent as YoutubeLogo } from "../assets/youtube.svg";
-import { ReactComponent as CloseSVG } from "../assets/close.svg";
-import { ReactComponent as CheckmarkSVG } from "../assets/checkmark.svg";
-import { ReactComponent as MapPinSVG } from "../assets/mapPin.svg";
-import { ReactComponent as MailSVG } from "../assets/mail.svg";
-import { ReactComponent as UpIconSVG } from "../assets/upIcon.svg";
+import { ReactComponent as WhatsappLogo } from "../static/whatsapp.svg";
+import { ReactComponent as Logo } from "../static/logo.svg";
+import { ReactComponent as HamburguerMenuSVG } from "../static/hamburguerMenu.svg";
+import { ReactComponent as InstagramLogo } from "../static/instagram.svg";
+import { ReactComponent as FacebookLogo } from "../static/facebook.svg";
+import { ReactComponent as YoutubeLogo } from "../static/youtube.svg";
+import { ReactComponent as CloseSVG } from "../static/close.svg";
+import { ReactComponent as CheckmarkSVG } from "../static/checkmark.svg";
+import { ReactComponent as MapPinSVG } from "../static/mapPin.svg";
+import { ReactComponent as MailSVG } from "../static/mail.svg";
+import { ReactComponent as UpIconSVG } from "../static/upIcon.svg";
 import ScrollReveal from "scrollreveal";
 
 import "./App.css";
-import React, { SyntheticEvent } from "react";
+import React, { SyntheticEvent, useState } from "react";
 
 function App() {
   function onScroll(ev: Event) {
     showGreenNavOnScroll();
     showBackToTopButton();
+
+    activateMenuAtCurrentSection("home");
+    activateMenuAtCurrentSection("services");
+    activateMenuAtCurrentSection("about");
+    activateMenuAtCurrentSection("contact");
+  }
+
+  function activateMenuAtCurrentSection(sectionId: string) {
+    const section = document.getElementById(sectionId);
+
+    if (!section) throw new Error("Section ID not found!");
+
+    const targetLine = scrollY + innerHeight / 2;
+
+    // verificar se a seção passou da linha
+    // quais dados vou precisar?
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const sectionTopReachOrPassedTargetline = targetLine >= sectionTop;
+
+    // verificar se a base está abaixo da linha alvo
+
+    const sectionEndsAt = sectionTop + sectionHeight;
+    const sectionEndPassedTargetline = sectionEndsAt <= targetLine;
+
+    // limites da seção
+    const sectionBoundaries =
+      sectionTopReachOrPassedTargetline && !sectionEndPassedTargetline;
+
+    const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`);
+
+    if (!menuElement) throw new Error("Menu element not found!");
+
+    menuElement.classList.remove("active");
+    if (sectionBoundaries) {
+      menuElement.classList.add("active");
+    }
   }
 
   function showGreenNavOnScroll(): void {
@@ -80,7 +117,6 @@ function App() {
                     closeMenu(e);
                     scrollTo("home");
                   }}
-                  className="active"
                   href="#home"
                 >
                   Início
@@ -181,7 +217,7 @@ function App() {
           </div>
           <div className="col-b">
             <img
-              src="/assets/girl.png"
+              src="/static/girl.png"
               id="girl-svg"
               alt="Mulher negra vestindo um moletom verde e sorrindo"
             />
@@ -304,7 +340,7 @@ function App() {
 
           <div className="col-b">
             <img
-              src="/assets/doctor.png"
+              src="/static/doctor.png"
               alt="Um Doutor feliz de jaleco branco com uma prancheta na mão com seus dois pacientes"
             />
           </div>
@@ -338,7 +374,7 @@ function App() {
 
             <div className="col-b">
               <img
-                src="/assets/black-guy-cellphone.png"
+                src="/static/black-guy-cellphone.png"
                 alt="homem negro com moletom bege mexendo no celular e sorrindo"
               />
             </div>
