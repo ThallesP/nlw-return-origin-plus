@@ -1,5 +1,4 @@
 /// <reference types="vite-plugin-svgr/client" />
-import { ReactComponent as GirlImg } from "../assets/girl.svg";
 import { ReactComponent as WhatsappLogo } from "../assets/whatsapp.svg";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 import { ReactComponent as HamburguerMenuSVG } from "../assets/hamburguerMenu.svg";
@@ -81,6 +80,7 @@ function App() {
                     closeMenu(e);
                     scrollTo("home");
                   }}
+                  className="active"
                   href="#home"
                 >
                   Início
@@ -110,17 +110,16 @@ function App() {
               </li>
             </ul>
 
-            <button className="button">
-              <a
-                onClick={(e) => {
-                  closeMenu(e);
-                  scrollTo("contact");
-                }}
-                href="#contact"
-              >
-                Agende sua consulta
-              </a>
-            </button>
+            <a
+              className="button"
+              onClick={(e) => {
+                closeMenu(e);
+                scrollTo("contact");
+              }}
+              href="#contact"
+            >
+              Agende sua consulta
+            </a>
 
             <ul className="social-links">
               <li>
@@ -164,23 +163,27 @@ function App() {
 
       <section id="home">
         <div className="wrapper">
-          <header>
-            <h4>BOAS-VINDAS A DOCTORCARE 👋</h4>
-            <h1>Assistência médica simplificada para todos</h1>
-          </header>
+          <div className="col-a">
+            <header>
+              <h4>BOAS-VINDAS A DOCTORCARE 👋</h4>
+              <h1>Assistência médica simplificada para todos</h1>
+            </header>
 
-          <div className="content">
-            <p>
-              Os médicos da DoctorCare vão além dos sintomas para tratar a causa
-              raiz de sua doença e proporcionar uma cura a longo prazo.
-            </p>
-            <a className="button" href="#contact">
-              <WhatsappLogo /> Agende sua consulta
-            </a>
-
-            <GirlImg
+            <div className="content">
+              <p>
+                Os médicos da DoctorCare vão além dos sintomas para tratar a
+                causa raiz de sua doença e proporcionar uma cura a longo prazo.
+              </p>
+              <a className="button" href="#contact">
+                <WhatsappLogo /> Agende sua consulta
+              </a>
+            </div>
+          </div>
+          <div className="col-b">
+            <img
+              src="/assets/girl.png"
               id="girl-svg"
-              title="Mulher negra vestindo um moletom verde e sorrindo"
+              alt="Mulher negra vestindo um moletom verde e sorrindo"
             />
           </div>
 
@@ -278,22 +281,28 @@ function App() {
 
       <section id="about">
         <div className="wrapper">
-          <header>
-            <h4>Sobre nós</h4>
-            <h2>Entenda quem somos e por que existimos</h2>
-          </header>
+          <div className="col-a">
+            <header>
+              <h4>Sobre nós</h4>
+              <h2>Entenda quem somos e por que existimos</h2>
+            </header>
 
-          <div className="content">
-            <p>
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim. Amet minim mollit
-              non deserunt ullamco est sit aliqua dolor do amet sint. Velit
-              officia consequat duis enim. Amet minim mollit non deserunt
-              ullamco est sit aliqua dolor do amet sint. Velit officia consequat
-              duis enim. Amet minim mollit non deserunt ullamco est sit aliqua
-              dolor do amet sint. Velit officia consequat duis enim. Amet minim
-              mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-            </p>
+            <div className="content">
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint. Velit officia consequat duis enim. Amet minim mollit
+                non deserunt ullamco est sit aliqua dolor do amet sint. Velit
+                officia consequat duis enim. Amet minim mollit non deserunt
+                ullamco est sit aliqua dolor do amet sint. Velit officia
+                consequat duis enim. Amet minim mollit non deserunt ullamco est
+                sit aliqua dolor do amet sint. Velit officia consequat duis
+                enim. Amet minim mollit non deserunt ullamco est sit aliqua
+                dolor do amet sint.
+              </p>
+            </div>
+          </div>
+
+          <div className="col-b">
             <img
               src="/assets/doctor.png"
               alt="Um Doutor feliz de jaleco branco com uma prancheta na mão com seus dois pacientes"
@@ -303,67 +312,74 @@ function App() {
       </section>
 
       <section id="contact">
-        <div className="wrapper">
-          <header>
-            <h2>Entre em contato com a gente!</h2>
-          </header>
-        </div>
-
         <div className="content">
           <div className="wrapper">
-            <ul>
-              <li>
-                <MapPinSVG /> R. Amauri Souza, 346
-              </li>
-              <li>
-                <MailSVG />
-                contato@doctorcare.com
-              </li>
-            </ul>
-            <a
-              className="button"
-              target="_blank"
-              href="https://wa.me/5511999999999"
-            >
-              <WhatsappLogo /> Agende sua consulta
-            </a>
-            <img
-              src="/assets/black-guy-cellphone.png"
-              alt="homem negro com moletom bege mexendo no celular e sorrindo"
-            />
+            <div className="col-a">
+              <header>
+                <h2>Entre em contato com a gente!</h2>
+              </header>
+              <ul>
+                <li>
+                  <MapPinSVG /> R. Amauri Souza, 346
+                </li>
+                <li>
+                  <MailSVG />
+                  contato@doctorcare.com
+                </li>
+              </ul>
+              <a
+                className="button"
+                target="_blank"
+                href="https://wa.me/5511999999999"
+              >
+                <WhatsappLogo /> Agende sua consulta
+              </a>
+            </div>
+
+            <div className="col-b">
+              <img
+                src="/assets/black-guy-cellphone.png"
+                alt="homem negro com moletom bege mexendo no celular e sorrindo"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       <footer>
         <div className="wrapper">
-          <a className="logo" href="#">
-            <Logo />
-          </a>
-          <p>
-            ©2022 DoctorCare.
-            <br />
-            Todos os direitos reservados.
-          </p>
-          <ul className="social-links">
-            <li>
-              <a target="_blank" href="https://facebook.com">
-                <FacebookLogo />
-              </a>
-            </li>
+          <div className="col-a">
+            <a className="logo" href="#">
+              <Logo />
+            </a>
+            <p>
+              ©2022 DoctorCare.
+              <br />
+              Todos os direitos reservados.
+            </p>
+          </div>
 
-            <li>
-              <a target="_blank" href="https://instagram.com">
-                <InstagramLogo />
-              </a>
-            </li>
+          <div className="col-b">
+            <ul className="social-links">
+              <li>
+                <a target="_blank" href="https://facebook.com">
+                  <FacebookLogo />
+                </a>
+              </li>
 
-            <li>
-              <a target="_blank" href="https://youtube.com">
-                <YoutubeLogo />
-              </a>
-            </li>
-          </ul>
+              <li>
+                <a target="_blank" href="https://instagram.com">
+                  <InstagramLogo />
+                </a>
+              </li>
+
+              <li>
+                <a target="_blank" href="https://youtube.com">
+                  <YoutubeLogo />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </footer>
 
