@@ -10,6 +10,9 @@ import { ReactComponent as CheckmarkSVG } from "../static/checkmark.svg";
 import { ReactComponent as MapPinSVG } from "../static/mapPin.svg";
 import { ReactComponent as MailSVG } from "../static/mail.svg";
 import { ReactComponent as UpIconSVG } from "../static/upIcon.svg";
+import girlURL from "../static/girl.png";
+import doctorURL from "../static/doctor.png";
+import blackGuyCellphoneURL from "../static/black-guy-cellphone.png";
 import ScrollReveal from "scrollreveal";
 
 import "./App.css";
@@ -217,7 +220,7 @@ function App() {
           </div>
           <div className="col-b">
             <img
-              src="/static/girl.png"
+              src={girlURL}
               id="girl-svg"
               alt="Mulher negra vestindo um moletom verde e sorrindo"
             />
@@ -340,7 +343,7 @@ function App() {
 
           <div className="col-b">
             <img
-              src="/static/doctor.png"
+              src={doctorURL}
               alt="Um Doutor feliz de jaleco branco com uma prancheta na mão com seus dois pacientes"
             />
           </div>
@@ -374,7 +377,7 @@ function App() {
 
             <div className="col-b">
               <img
-                src="/static/black-guy-cellphone.png"
+                src={blackGuyCellphoneURL}
                 alt="homem negro com moletom bege mexendo no celular e sorrindo"
               />
             </div>
